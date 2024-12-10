@@ -17,19 +17,19 @@ public class BinaryNode<T> extends Node<T> {
         super(value, left, right);
     }
 
-    public Node<T> getLeft() {
-        return getChild(0);
+    public BinaryNode<T> getLeft() {
+        return (BinaryNode<T>) getChild(0);
     }
 
-    public Node<T> getRight() {
-        return getChild(1);
+    public BinaryNode<T> getRight() {
+        return (BinaryNode<T>) getChild(1);
     }
 
-    public void setLeft(Node<T> c) {
+    public void setLeft(BinaryNode<T> c) {
         setChild(0, c);
     }
 
-    public void setRight(Node<T> c) {
+    public void setRight(BinaryNode<T> c) {
         setChild(1, c);
     }
     /**
