@@ -18,13 +18,13 @@ public class BSTNode<T extends Comparable<T>> extends BinaryNode<T> {
     public void insert(T value) {
         if (value.compareTo(getValue()) < 0) {
             if (getLeft() == null) {
-                setLeft(new BinaryNode<>(value));
+                setLeft(new BSTNode<>(value));
             } else {
                 ((BSTNode<T>) getLeft()).insert(value);
             }
         } else if (value.compareTo(getValue()) > 0) {
             if (getRight() == null) {
-                setRight(new BinaryNode<>(value));
+                setRight(new BSTNode<>(value));
             } else {
                 ((BSTNode<T>) getRight()).insert(value);
             }
