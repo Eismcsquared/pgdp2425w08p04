@@ -45,18 +45,18 @@ public class BinaryNode<T> extends Node<T> {
         switch (order) {
             case IN -> {
                 result.addAll(leftList);
-                result.add(this.getValue());
+                result.add(getValue());
                 result.addAll(rightList);
             }
             case PRE -> {
-                result.add(this.getValue());
+                result.add(getValue());
                 result.addAll(leftList);
                 result.addAll(rightList);
             }
             case POST -> {
                 result.addAll(leftList);
                 result.addAll(rightList);
-                result.add(this.getValue());
+                result.add(getValue());
             }
         }
         return result;
@@ -73,7 +73,7 @@ public class BinaryNode<T> extends Node<T> {
      * @param order The elements should be returned in the given order.
      */
     public String toString(Order order) {
-        if (isLeaf()) {
+        if(isLeaf()) {
             return "[" + getValue() + "]";
         }
         String leftString = getLeft() != null ? getLeft().toString(order) : "-";
