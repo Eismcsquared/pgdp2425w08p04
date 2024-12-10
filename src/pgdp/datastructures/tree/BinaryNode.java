@@ -76,8 +76,8 @@ public class BinaryNode<T> extends Node<T> {
         if (isLeaf()) {
             return "[" + getValue() + "]";
         }
-        String leftString = getLeft() != null ? getLeft().toString() : "-";
-        String rightString = getRight() != null ? getRight().toString() : "-";
+        String leftString = getLeft() != null ? getLeft().toString(order) : "-";
+        String rightString = getRight() != null ? getRight().toString(order) : "-";
         return switch (order) {
             case IN -> "[" + leftString + ", " + getValue() + ", " + rightString + "]";
             case PRE -> "[" + getValue() + ", " + leftString + ", " + rightString + "]";
