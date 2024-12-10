@@ -1,5 +1,6 @@
 package pgdp.datastructures.tree;
 
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,7 +13,7 @@ public class BinaryNode<T> extends Node<T> {
 
     // TODO 2.1.1: Implement the 2. constructor. Implement getters & setters for left & right children.
 
-    public BinaryNode(T value, Node<T> left, Node<T> right) {
+    public BinaryNode(T value, BinaryNode<T> left, BinaryNode<T> right) {
         super(value, left, right);
     }
 

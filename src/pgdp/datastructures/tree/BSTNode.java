@@ -5,7 +5,7 @@ public class BSTNode<T extends Comparable<T>> extends BinaryNode<T> {
         super(value);
     }
 
-    public BSTNode(T value, Node<T> left, Node<T> right) {
+    public BSTNode(T value, BSTNode<T> left, BSTNode<T> right) {
         super(value, left, right);
     }
 
