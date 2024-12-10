@@ -1,10 +1,11 @@
 package pgdp.datastructures.tree;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class BST<T extends Comparable<T>> {
 
-    // TODO 4.1: Add the attributes and constructors.
+    private BSTNode<T> root;
 
 
     /**
@@ -13,8 +14,7 @@ public class BST<T extends Comparable<T>> {
      * @return true if the tree is empty, false otherwise.
      */
     public boolean isEmpty() {
-        // TODO 4.2: Implement the method.
-        return false;
+        return root == null;
     }
 
     /**
@@ -23,8 +23,10 @@ public class BST<T extends Comparable<T>> {
      * @return the size of the tree.
      */
     public int size() {
-        // TODO 4.3: Implement the method.
-        return 0;
+        if (isEmpty()) {
+            return 0;
+        }
+        return root.size();
     }
 
 
@@ -35,8 +37,10 @@ public class BST<T extends Comparable<T>> {
      * @return true if the value is found, false otherwise.
      */
     public boolean contains(T value) {
-        // TODO 4.4: Implement the method.
-        return false;
+        if (isEmpty()) {
+            return false;
+        }
+        return root.contains(value);
     }
 
     /**
@@ -45,7 +49,11 @@ public class BST<T extends Comparable<T>> {
      * @param value The value to insert into the tree.
      */
     public void insert(T value) {
-        // TODO 4.5: Implement the method.
+        if (isEmpty()) {
+            root = new BSTNode<>(value);
+        } else {
+            root.insert(value);
+        }
     }
 
     /**
@@ -54,8 +62,10 @@ public class BST<T extends Comparable<T>> {
      * @return a list of tree values in sorted order.
      */
     public List<T> toList() {
-        // TODO 4.6: Implement the method.
-        return null;
+        if (isEmpty()) {
+            return new LinkedList<>();
+        }
+        return root.toList(Order.IN);
     }
 
 
@@ -66,7 +76,9 @@ public class BST<T extends Comparable<T>> {
      */
     @Override
     public String toString() {
-        // TODO 4.7: Implement the method.
-        return null;
+        if (isEmpty()) {
+            return "[]";
+        }
+        return root.toString();
     }
 }

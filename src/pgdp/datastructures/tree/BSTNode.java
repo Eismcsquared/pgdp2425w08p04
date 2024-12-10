@@ -1,8 +1,13 @@
 package pgdp.datastructures.tree;
 
 public class BSTNode<T extends Comparable<T>> extends BinaryNode<T> {
+    public BSTNode(T value) {
+        super(value);
+    }
 
-    // TODO 3.1: Implement the constructors.
+    public BSTNode(T value, Node<T> left, Node<T> right) {
+        super(value, left, right);
+    }
 
 
     /**
@@ -11,7 +16,19 @@ public class BSTNode<T extends Comparable<T>> extends BinaryNode<T> {
      * @param value The value to be inserted to the tree.
      */
     public void insert(T value) {
-        // TODO 3.2: Implement recursively.
+        if (value.compareTo(getValue()) < 0) {
+            if (getLeft() == null) {
+                setLeft(new BinaryNode<>(value));
+            } else {
+                ((BSTNode<T>) getLeft()).insert(value);
+            }
+        } else if (value.compareTo(getValue()) > 0) {
+            if (getRight() == null) {
+                setRight(new BinaryNode<>(value));
+            } else {
+                ((BSTNode<T>) getRight()).insert(value);
+            }
+        }
     }
 
 
@@ -20,8 +37,20 @@ public class BSTNode<T extends Comparable<T>> extends BinaryNode<T> {
      * @return true if the value is found, false otherwise.
      */
     public boolean contains(T value) {
-        // TODO 3.2: Implement recursively.
-        return false;
+        if (value.compareTo(getValue()) == 0) {
+            return true;
+        }
+        if (value.compareTo(getValue()) < 0) {
+            if (getLeft() == null) {
+                return false;
+            }
+            return ((BSTNode<T>) getLeft()).contains(value);
+        } else {
+            if (getRight() == null) {
+                return false;
+            }
+            return ((BSTNode<T>) getRight()).contains(value);
+        }
     }
 
 }

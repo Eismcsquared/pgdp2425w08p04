@@ -27,27 +27,47 @@ public abstract class Node<T> {
     }
 
     public Node<T> getChild(int i) {
-        // TODO 1.1: Returns i-th child or null.
-        return null;
+        if (i < 0 || i >= children.length) {
+            return null;
+        }
+        return children[i];
     }
 
     public void setChild(int i, Node<T> c) {
-        // TODO 1.2: Sets to c-th node i-th child, if i is valid.
+        if (i >= 0 && i < children.length) {
+            children[i] = c;
+        }
     }
 
     public boolean isLeaf() {
-        // TODO 1.3: Returns true if the node is a leaf.
-        return false;
+        for (Node<T> c: children) {
+            if (c != null) {
+                return false;
+            }
+        }
+        return true;
     }
-
     public int height() {
-        // TODO 1.4: Returns the height starting from the current node. Should be recursive!
-        return 0;
+        int macChildHeight = 0;
+        for (Node<T> c: children) {
+            if (c != null) {
+                int height = c.height();
+                if (height > macChildHeight) {
+                    macChildHeight = height;
+                }
+            }
+        }
+        return 1 + macChildHeight;
     }
 
     public int size() {
-        // TODO 1.5: Returns the number of nodes in the current tree. Should be recursive!
-        return 0;
+        int size = 1;
+        for (Node<T> c: children) {
+            if (c != null) {
+                size += c.size();
+            }
+        }
+        return size;
     }
 
     public abstract List<T> toList(Order order);
