@@ -48,19 +48,15 @@ public abstract class Node<T> {
         return true;
     }
     public int height() {
-        if (isLeaf()) {
-            return 1;
-        }
         int maxChildHeight = 0;
         for (Node<T> c: children) {
             if (c != null) {
-                int height = c.height();
-                if (height > maxChildHeight) {
-                    maxChildHeight = height;
+                if (c.height() > maxChildHeight) {
+                    maxChildHeight = c.height();
                 }
             }
         }
-        return 1 + maxChildHeight;
+        return maxChildHeight + 1;
     }
 
     public int size() {

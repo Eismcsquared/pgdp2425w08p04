@@ -73,7 +73,7 @@ public class BinaryNode<T> extends Node<T> {
      * @param order The elements should be returned in the given order.
      */
     public String toString(Order order) {
-        if(isLeaf()) {
+        if (isLeaf()) {
             return "[" + getValue() + "]";
         }
         String leftString = getLeft() != null ? getLeft().toString(order) : "-";
