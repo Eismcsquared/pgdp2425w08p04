@@ -11,8 +11,6 @@ public class BinaryNode<T> extends Node<T> {
         super(value, null, null);
     }
 
-    // TODO 2.1.1: Implement the 2. constructor. Implement getters & setters for left & right children.
-
     public BinaryNode(T value, BinaryNode<T> left, BinaryNode<T> right) {
         super(value, left, right);
     }
